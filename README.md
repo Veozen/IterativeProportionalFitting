@@ -4,7 +4,7 @@ Finds a set of weights as close to the original values such that all provided co
 The size the submitted problem is not bound by the computer's RAM.
 
 Inequality constraints can be submited on the values of the weights as well as the values of the linear combinations.  
-
+```SAS
 %macro IPF(inVar,ConsCoef=,Targets=,DataOut=,tol=1,maxIter=100);  
 /*  
 inVar: File  
@@ -27,6 +27,7 @@ DataOut : File
     weight	: numeric lb <=	w <= ub  
 
 */
+```
 
 ## USAGE 
 ```SAS
@@ -73,8 +74,12 @@ run;
 data BalCoef;  
 	merge weight(keep=unitid weight) coef;  
 run;  
-proc means data= BalCoef noprint; weight weight; var var1 var2 var3 var4 var5 var6 var7 var8 var9 var10; output out=BalSum sum= /autoname;run;  
-proc transpose data=BalSum out= TBalSum;run;  
+proc means data= BalCoef noprint;
+	weight weight; var var1 var2 var3 var4 var5 var6 var7 var8 var9 var10;
+	output out=BalSum sum= /autoname;
+run;  
+proc transpose data=BalSum out= TBalSum;
+run;  
 data targets(keep=consId consType target);  
 	length consId $6;  
 	set TBalSum;  
