@@ -7,24 +7,24 @@ Inequality constraints can be submited on the values of the weights as well as t
 
 %macro IPF(inVar,ConsCoef=,Targets=,DataOut=,tol=1,maxIter=100);  
 /*
-inVar: File
-    unitId      : numeric of string
-    weight      : numeric decision variable
-	lb			: numeric x >= lb
-	ub			: numeric x <= up
+inVar: File  
+    unitId      : numeric of string  
+    weight      : numeric decision variable  
+	lb	: numeric x >= lb  
+	ub	: numeric x <= up  
 
-ConsCoef : File
-    unitId      : numeric or string
-    (Var1..VarN):
+ConsCoef 	: File  
+    unitId      : numeric or string  
+    (Var1..VarN):  
 
 Targets : File
-    consId    	: liste des variables contenant les coefficients (Var1..VarN)
-	consType	: constraint must be greater or equal (ge) the target, lesser or equal (le), or equal (eq)
-    Target      : numeric
+	consId 	: liste des variables contenant les coefficients (Var1..VarN)  
+	consType: constraint must be greater or equal (ge) the target, lesser or equal (le), or equal (eq)  
+	Target  : numeric    
 
-DataOut : File
-    untiId      :
-    weight		: numeric lb <=	w <= ub
+DataOut : File  
+    untiId      :  
+    weight	: numeric lb <=	w <= ub  
 
 */
 
