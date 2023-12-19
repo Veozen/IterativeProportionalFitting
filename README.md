@@ -1,6 +1,6 @@
 ## Desciption  
 Applies Iterative proportional fitting to a set of input weights(positive real numbers).
-Finds a set of weights as close to the original values such that all provided contraint are met.
+Finds a set of weights as close to the original values as possible such that all provided contraint are met.
 The size the submitted problem is not bound by the computer's RAM.
 
 Inequality constraints can be submited on the values of the weights as well as the values of the linear combinations.  
