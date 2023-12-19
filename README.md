@@ -29,7 +29,7 @@ DataOut : File
 */
 
 ## USAGE 
-
+```SAS
 /*Example*/  
 %let N=1000;  
 %let inclprob =0.2;  
@@ -94,3 +94,4 @@ run;
 
 options notes;  
 %IPF(weight,consCoef=coef,Targets=targets,DataOut=Calweight,tol=0.2,maxiter=400);
+```
