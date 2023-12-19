@@ -159,8 +159,8 @@ DataOut : File
     %let VarNames = %VarNames(data=&ConsCoef,start=2);
     %let Nvar = %sysfunc(countw(&varNames));
 
-    %put Nombre d équations : &Nvar;
-    %put Nombre d unitées   : &Nunits;
+    %put Number of equations 	: &Nvar;
+    %put Number of units  	: &Nunits;
 	%put ;
 
 	/*Check the input constraints to make sure the weights are all either 1 or 0*/
@@ -265,7 +265,7 @@ DataOut : File
     option &options;
 
     %put;
-    %Put Débuté à  &Start;
-    %put Terminé à %time();
-    %put Durée     %time(&Start);
+    %Put Start at  	&Start;
+    %put End at 	%time();
+    %put Duration 	%time(&Start);
 %mend IPF;
