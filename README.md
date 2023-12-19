@@ -3,9 +3,9 @@ Applies Iterative proportional fitting to a set of input weights(positive real n
 Finds a set of weights as close to the original values such that all provided contraint are met.
 The size the submitted problem is not bound by the computer's RAM.
 
-Inequality constraints can be submited on the values of the weights as well as the values of the linear combinations.
+Inequality constraints can be submited on the values of the weights as well as the values of the linear combinations.  
 
-%macro IPF(inVar,ConsCoef=,Targets=,DataOut=,tol=1,maxIter=100);
+%macro IPF(inVar,ConsCoef=,Targets=,DataOut=,tol=1,maxIter=100);  
 /*
 inVar: File
     unitId      : numeric of string
@@ -30,7 +30,7 @@ DataOut : File
 
 ## USAGE 
 
-/*Example*/
+/*Example*/  
 %let N=1000;
 %let inclprob =0.2;
 
@@ -92,5 +92,5 @@ data targets;
 run;
 *proc delete data= BalSum TBalSum;run;
 
-options notes;
+options notes;  
 %IPF(weight,consCoef=coef,Targets=targets,DataOut=Calweight,tol=0.2,maxiter=400);
