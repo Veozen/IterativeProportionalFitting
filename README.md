@@ -6,7 +6,7 @@ The size the submitted problem is not bound by the computer's RAM.
 Inequality constraints can be submited on the values of the weights as well as the values of the linear combinations.  
 
 %macro IPF(inVar,ConsCoef=,Targets=,DataOut=,tol=1,maxIter=100);  
-/*
+/*  
 inVar: File  
     unitId      : numeric of string  
     weight      : numeric decision variable  
@@ -17,7 +17,7 @@ ConsCoef 	: File
     unitId      : numeric or string  
     (Var1..VarN):  
 
-Targets : File
+Targets : File  
 	consId 	: liste des variables contenant les coefficients (Var1..VarN)  
 	consType: constraint must be greater or equal (ge) the target, lesser or equal (le), or equal (eq)  
 	Target  : numeric    
@@ -31,17 +31,17 @@ DataOut : File
 ## USAGE 
 
 /*Example*/  
-%let N=1000;
-%let inclprob =0.2;
+%let N=1000;  
+%let inclprob =0.2;  
 
-data prob;
+data prob;  
 	do unitid = 1 to &N;
 		prob=&inclprob;
 		output;
 	end;
-run;
+run;  
 
-data weight;
+data weight;  
 	set prob;
 	weight=1/prob;
 	if rand('uniform') < 0.2 then do;
@@ -52,9 +52,9 @@ data weight;
 		lb=1;
 		ub=10;
 	end;
-run;
+run;  
 
-data coef;
+data coef;  
 
 	do unitid = 1 to &N;
 		var1=1;
@@ -69,13 +69,13 @@ data coef;
 		var10=rand('Bernoulli',0.5);
 		output; 
 	end;
-run;
-data BalCoef;
-	merge weight(keep=unitid weight) coef;
-run;
-proc means data= BalCoef noprint; weight weight; var var1 var2 var3 var4 var5 var6 var7 var8 var9 var10; output out=BalSum sum= /autoname;run;
-proc transpose data=BalSum out= TBalSum;run;
-data targets(keep=consId consType target);
+run;  
+data BalCoef;  
+	merge weight(keep=unitid weight) coef;  
+run;  
+proc means data= BalCoef noprint; weight weight; var var1 var2 var3 var4 var5 var6 var7 var8 var9 var10; output out=BalSum sum= /autoname;run;  
+proc transpose data=BalSum out= TBalSum;run;  
+data targets(keep=consId consType target);  
 	length consId $6;
 	set TBalSum;
 	if _N_ >2;
@@ -84,13 +84,13 @@ data targets(keep=consId consType target);
 	pos=find(consID,"_");
 	consId=substr(ConsId,1,pos-1);
 	target=Col1*((rand('uniform')-0.5)/12 +1);
-run;
-data targets;
+run;  
+data targets;  
 	set targets;
 	if _N_ =1 then consType="le";
 	if _N_ =2 then consType="ge";
-run;
-*proc delete data= BalSum TBalSum;run;
+run;  
+*proc delete data= BalSum TBalSum;run;  
 
 options notes;  
 %IPF(weight,consCoef=coef,Targets=targets,DataOut=Calweight,tol=0.2,maxiter=400);
