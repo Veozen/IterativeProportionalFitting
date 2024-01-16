@@ -1,12 +1,23 @@
-## Desciption  
+# Macro IPF  
 Applies Iterative proportional fitting to a set of input weights(positive real numbers).
 Finds a set of weights as close to the original values as possible such that all provided contraint are met.
 The size the submitted problem is not bound by the computer's RAM.
 
 Inequality constraints can be submited on the values of the weights as well as the values of the linear combinations.  
+
+## Syntax
+
 ```SAS
-%macro IPF(inVar,ConsCoef=,Targets=,DataOut=,tol=1,maxIter=100);  
-/*  
+%macro IPF(
+	inVar,
+	ConsCoef=,
+	Targets=,
+	DataOut=,
+	tol=1,
+	maxIter=100);  
+```
+## Parameters:
+### Input:
 inVar: File  
 	unitId  : numeric of string  
 	weight  : numeric decision variable  
@@ -22,11 +33,11 @@ Targets : File
 	consType: constraint must be greater or equal (ge) the target, lesser or equal (le), or equal (eq)  
 	Target  : the value to which the linear constraint should add up to    
 
+### Output:
 DataOut : File  
 	untiId  : label identifying the unit from input file inVar 
 	weight	: numeric lb <=	w <= ub
-*/
-```
+
 
 ## USAGE 
 ```SAS
