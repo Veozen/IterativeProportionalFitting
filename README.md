@@ -14,7 +14,8 @@ Inequality constraints can be submited on the values of the weights as well as t
 	Targets=,
 	DataOut=,
 	tol=1,
-	maxIter=100);  
+	maxIter=100
+);  
 ```
 ## Parameters:
 ### Input:
