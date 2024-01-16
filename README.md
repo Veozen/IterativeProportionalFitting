@@ -29,14 +29,14 @@ ConsCoef : File
 	(Var1..VarN): coefficients of the linear combinations that must be statisfied. One variable per linear combination. 
 
 Targets : File  
-	consId 	: name of the variable (Var1..VarN) from file ConsCoef that contains the coefficients of this linear combination
+	consId 	: name of the variable (Var1..VarN) from file ConsCoef that contains the coefficients of this linear combination  
 	consType: constraint must be greater or equal (ge) the target, lesser or equal (le), or equal (eq)  
 	Target  : the value to which the linear constraint should add up to    
 
 ### Output:
 DataOut : File  
-	untiId  : label identifying the unit from input file inVar 
-	weight	: numeric lb <=	w <= ub
+	untiId  : label identifying the unit from input file inVar   
+	weight	: numeric lb <=	w <= ub  
 
 
 ## USAGE 
