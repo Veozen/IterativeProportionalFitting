@@ -5,7 +5,7 @@ The size the submitted problem is not bound by the computer's RAM.
 
 Inequality constraints can be submited on the values of the weights as well as the values of the linear combinations.  
 
-## Syntax
+## Syntax:
 
 ```SAS
 %macro IPF(
